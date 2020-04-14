@@ -2,12 +2,30 @@ import '../styles/styles.css'
 import MobileMenu from './modules/MobileMenu'
 import RevealOnScroll from './modules/RevealOnScroll' 
 import StickyHeader from './modules/StickyHeader'
+//import Modal from './modules/Modal'
 
+//new Modal()
 let stickyHeader = new StickyHeader()
 let mobileMenu = new MobileMenu(); //new instance of the MobileMenu class
 new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
 new RevealOnScroll(document.querySelectorAll(".testimonial"), 60)
+let modal /* Create global variable */
 
+/* download Modal Code if user need it */
+document.querySelectorAll(".open-modal").forEach( element => {
+    element.addEventListener("click", event => {
+        event.preventDefault() /* Prevent default behavior */
+        /* Return a promise */
+        if(typeof modal == "undefined"){
+            import(/* WebpackChunkName: "modal" */'./modules/Modal').then(x => {
+                modal = new x.default()
+                setTimeout(()=> modal.openTheModal(), 20)
+            }).catch(() => console.log("There was a problem."))
+        }else{
+            modal.openTheModal()
+        }
+    })
+})
 
 if(module.hot) {
     module.hot.accept()
