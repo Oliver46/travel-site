@@ -3,9 +3,11 @@ import 'lazysizes' /* download images when user scrolldown */
 import MobileMenu from './modules/MobileMenu'
 import RevealOnScroll from './modules/RevealOnScroll' 
 import StickyHeader from './modules/StickyHeader'
+import ClientArea from './modules/ClientArea'
 //import Modal from './modules/Modal'
 
 //new Modal()
+new ClientArea()
 let stickyHeader = new StickyHeader()
 let mobileMenu = new MobileMenu(); //new instance of the MobileMenu class
 new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
