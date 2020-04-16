@@ -6,6 +6,16 @@ import StickyHeader from './modules/StickyHeader'
 import ClientArea from './modules/ClientArea'
 //import Modal from './modules/Modal'
 
+//Integrate react in my workflow
+//React Related Code
+import React from 'react'
+import ReactDOM from 'react-dom'
+// import React components that we created
+import MyAmazingComponent from './modules/MyAmazingComponent'
+
+ReactDOM.render(<MyAmazingComponent />, document.querySelector("#my-react-example"))
+
+
 //new Modal()
 new ClientArea()
 let stickyHeader = new StickyHeader()
